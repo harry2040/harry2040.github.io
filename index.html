@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tranquil Stargazer's Paradise</title>
+    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            opacity: 0.5; /* Dim the video */
+        }
+
+
+        .owl-carousel .item {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            overflow: hidden; /* Ensure image doesn't overflow */
+        }
+
+        .owl-carousel .item img {
+            max-width: 100%;  /* Ensure image fits within the container */
+            max-height: 100%;
+            object-fit: contain; /* maintain aspect ratio and fit within container */
+        }
+
+        .owl-carousel .item h2,
+        .owl-carousel .item h3,
+        .owl-carousel .item h5{
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            z-index: 1; /* Ensure text is above the image */
+            position: relative;
+        }
+
+        .owl-dots {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .owl-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .owl-dot.active {
+            background-color: #007bff;
+        }
+
+        .owl-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .owl-prev,
+        .owl-next {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .owl-prev:hover,
+        .owl-next:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .owl-prev {
+            left: 10px;
+        }
+
+        .owl-next {
+            right: 10px;
+        }
+
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px 0;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+        }
+
+        .top-nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .top-nav ul li {
+            margin: 0 20px;
+        }
+
+        .top-nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .top-nav ul li a:hover {
+            color: #007bff;
+        }
+
+        .top-nav ul li a.book-now {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .top-nav ul li a.book-now:hover {
+            background-color: #007bff;
+        }
+        main {
+           margin-top: 60px;
+        }
+        .mdc-card {
+            background-color: #1fe0;
+            }
+
+        .mdc-card__supporting-text {
+            background-color: #1fe0;
+            padding: 16px;
+            color: rgba(255, 255, 255, 1);
+            font-size: 1.1rem;
+            line-height: 1.5;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .mdc-card__supporting-text ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .mdc-card__supporting-text ul li {
+             margin-bottom: 5px;
+        }
+        .hero-top-app-bar {
+             background: #ddd;
+             color: black;
+        }
+                .book-now-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .book-now-container .mdc-button.mdc-button--raised{
+             background-color: #0096FF;
+             font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="video-background">
+    <video autoplay loop muted playsinline>
+        <source src="pictures/stars2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+<header class="hero-top-app-bar mdc-top-app-bar mdc-top-app-bar--prominent">
+    <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <span></span>
+            <span class="mdc-top-app-bar__title">Tranquil Stargazer's Paradise</span>
+        </section>
+    </div>
+</header>
+<nav class="top-nav">
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="location.html">Location</a></li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="https://www.airbnb.com/rooms/1277523719785230170?check_in=2024-06-01&guests=1&adults=1&check_out=2024-06-08" target="_blank" class="book-now">Book Now</a></li>
+    </ul>
+</nav>
+<main class="mdc-layout-grid" id="home">
+    <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+            <div class="owl-carousel owl-theme">
+                <div class="item" >
+                    <ul style="list-style-type:none;">
+                    <li><h2>Enjoy a tranquil night under the stars</h2></li>
+                    <li><h5>Stargazing: where dreams meet the cosmos.</h5></li>
+                    </ul>
+                </div>
+                <div class="item" >
+                    <ul style="list-style-type:none;">
+                    <li><h2>Cozy Cabin surrounded by Nature</h2></li>
+                    <li><h5>Nature does not hurry, yet everything is accomplished</h5></li>
+                    </ul>
+                </div>
+                <div class="item" >
+                    <ul style="list-style-type:none;">
+                    <li><h2>Love, Family and Friends</h2></li>
+                    <li><h5>Family, friends, and love are the foundation of a happy life.</h5></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mdc-card">
+                <div class="mdc-card__supporting-text">
+                    Nestled amidst 5 acres of pristine forest, this mountain home offers a tranquil escape under a canopy of stars.
+                    Enjoy modern amenities, cozy living spaces, and breathtaking natural beauty.
+                </div>
+            </div>
+        </div>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+            <div class="owl-carousel owl-theme">
+                <div class="item" style="background-image: url('pictures/yosemite1.jpg');">
+                    <h2>Mount Hoffman</h2>
+                </div>
+                <div class="item" style="background-image: url('pictures/yosemite2.jpg');">
+                    <h3>Yosemite Falls</h3>
+                </div>
+                <div class="item" style="background-image: url('pictures/yosemite3.jpg');">
+                    <h3>Horsetail Fall</h3>
+                </div>
+                <div class="item" style="background-image: url('pictures/yosemite4.jpg');">
+                    <h3>Bridalveil Falls</h3>
+                </div>
+                <div class="item" style="background-image: url('pictures/yosemite5.jpg');">
+                    <h3>Glacier Point</h3>
+                </div>
+                <div class="item" style="background-image: url('pictures/yosemite6.jpg');">
+                    <h3>Tenaya Lake</h3>
+                </div>
+            </div>
+            <div class="mdc-card">
+                <div class="mdc-card__supporting-text">
+                    25 mins to Yosemite National Park
+                    <ul style="list-style-type:none;">
+                        <li> +10 mins to Tioga Pass</li>
+                        <li> +25 mins to Yosemite Valley</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+            <div class="owl-carousel owl-theme">
+                <div class="item" style="background-image: url('pictures/home1.avif');">
+                    <h3>Cold comfort</h3>
+                </div>
+                <div class="item" style="background-image: url('pictures/home2.jpg');">
+                    <h3>Sunshine after rain</h3>
+                </div>
+                <div class="item" style="background-image: url('pictures/home3.jpg');">
+                    <h3>Fall colours</h3>
+                </div>
+                <div class="item" style="background-image: url('pictures/home4.avif');">
+                    <h3>Warmth</h3>
+                </div>
+            </div>
+            <div class="mdc-card">
+                <div class="mdc-card__supporting-text">
+                    <ul style="list-style-type:none;">
+                        <li> Plenty of outdoor and indoor spaces for the whole family. </li>
+                        <li> Enjoy the seasons </li>
+                        <li> relax and unwind </li>
+                </div>
+            </div>
+        </div>
+
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+            <div class="owl-carousel owl-theme">
+                <div class="item" style="background-image: url('pictures/inside1.avif');height:900px;">
+                    <h3>Movie nights</h3>
+                </div>
+                <div class="item" style="background-image: url('pictures/inside2.jpg');height:900px;">
+                    <h3>Sleep in</h3>
+                </div>
+                <div class="item" style="background-image: url('pictures/inside3.jpg');height:900px;">
+                    <h3>Relax</h3>
+                </div>
+                <div class="item" style="background-image: url('pictures/inside4.jpg');height:900px;">
+                    <h3>Gourmet meals</h3>
+                </div>
+                <div class="item" style="background-image: url('pictures/inside5.jpg');height:900px;">
+                    <h3>Board Game</h3>
+                </div>
+                <div class="item" style="background-image: url('pictures/inside6.jpg');height:900px;">
+                    <h3>Marvel at beauty</h3>
+                </div>
+                <div class="item" style="background-image: url('pictures/inside7.jpg');height:900px;">
+                    <h3>Read and explore</h3>
+                </div>
+            </div>
+
+            <div class="mdc-card">
+                <div class="mdc-card__supporting-text">
+                    <ul style="list-style-type:none;">
+                        <li>Your vacation, your time.</li>
+                        <li>Disconnect, relax and unwind.</li>
+                        <li>Family and fun</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+            <div class="book-now-container">
+                <a href="https://www.airbnb.com/rooms/1277523719785230170" target="_blank" class="mdc-button mdc-button--raised book-now">
+                    Book Now
+                </a>
+            </div>
+            <script async="" src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script>
+            <div class="airbnb-embed-frame" data-id="1277523719785230170" data-view="home" style="width:450px;height:600px;margin:auto">
+                <a href="https://www.airbnb.com/rooms/1277523719785230170?source=embed_widget">Book Now! </a>
+                <a href="https://www.airbnb.com/rooms/1277523719785230170?guests=1&amp;adults=1&amp;s=66&amp;source=embed_widget" rel="nofollow">Tranquil Stargazer's Paradise</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="mdc-layout-grid">
+    <div class="mdc-layout-grid__inner">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12 mdc-typography--caption">
+            &copy; 2025 Interstellar Dreams LLC
+        </div>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script>
+      $(document).ready(function(){
+        $('.owl-carousel').owlCarousel({
+            items: 1,
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            dots: true,
+            nav: true,
+            navText: ["&#8249;", "&#8250;"],
+        });
+      });
+      const buttons = [].map.call(document.querySelectorAll('.mdc-button'), (el) => {
+        return new mdc.ripple.MDCRipple(el);
+      });
+      const cards = [].map.call(document.querySelectorAll('.mdc-card__primary-action'), (el) => {
+        return new mdc.ripple.MDCRipple(el);
+      });
+      const iconButtons = [].map.call(document.querySelectorAll('.mdc-icon-button'), (el) => {
+        return new mdc.ripple.MDCRipple(el);
+      });
+    </script>
+</body>
+</html>
