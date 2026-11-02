@@ -1,0 +1,226 @@
+<title>ThinkTime Privacy</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Source+Serif+4:ital@1&display=swap">
+<style>
+  /* Layout: single reading column, like a page from a book — a serif
+     masthead over plain system-sans body text, wide margins, no chrome. */
+  :root {
+    --bg: #FAF7F2;
+    --card: #FFFFFF;
+    --text: #2B2621;
+    --secondary: #746B62;
+    --border: #EAE3D8;
+    --accent: #3B82C4;
+    --accent-ink: #1F5A8C;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #201E1A;
+      --card: #272420;
+      --text: #EDE7DD;
+      --secondary: #A79E92;
+      --border: #3A362F;
+      --accent: #6FB3EC;
+      --accent-ink: #9CCDF5;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #201E1A;
+    --card: #272420;
+    --text: #EDE7DD;
+    --secondary: #A79E92;
+    --border: #3A362F;
+    --accent: #6FB3EC;
+    --accent-ink: #9CCDF5;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding-block: 56px 88px;
+  }
+
+  .masthead {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .mark {
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .mark svg { width: 24px; height: 24px; }
+  .masthead-text h1 {
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    font-weight: 600;
+    font-size: 26px;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .updated {
+    color: var(--secondary);
+    font-size: 13.5px;
+    margin-top: 2px;
+  }
+
+  .lede {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-style: italic;
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--text);
+    margin: 0 0 32px;
+    text-wrap: balance;
+  }
+
+  .summary {
+    border: 1px solid var(--border);
+    background: var(--card);
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin-bottom: 40px;
+  }
+  .summary .eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    margin-bottom: 8px;
+  }
+  .summary p { margin: 0; font-size: 15.5px; }
+
+  h2 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 600;
+    font-size: 19px;
+    margin: 38px 0 10px;
+    text-wrap: balance;
+  }
+  p, li { font-size: 15.5px; max-width: 62ch; }
+  ul { padding-left: 22px; margin: 10px 0; }
+  li + li { margin-top: 6px; }
+  strong { font-weight: 600; }
+  a { color: var(--accent-ink); }
+
+  .contact {
+    color: var(--secondary);
+    font-size: 14px;
+    margin-top: 52px;
+    padding-top: 22px;
+    border-top: 1px solid var(--border);
+  }
+  .contact a { color: var(--secondary); text-decoration-color: var(--border); }
+</style>
+
+<div class="wrap">
+  <div class="masthead">
+    <div class="mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+      </svg>
+    </div>
+    <div class="masthead-text">
+      <h1>ThinkTime Privacy Policy</h1>
+      <div class="updated">Last updated October 31, 2026</div>
+    </div>
+  </div>
+
+  <p class="lede">
+    ThinkTime turns highlights you've already made — in Kindle books, or notes exported from tools
+    like Obsidian — into a shuffled feed worth reopening. This page explains, plainly, what happens
+    to your data.
+  </p>
+
+  <div class="summary">
+    <div class="eyebrow">The short version</div>
+    <p>
+      ThinkTime has no account, no server, and no analytics. Everything you import stays on your
+      device. Nothing is ever uploaded anywhere unless you personally tap a Share button — and even
+      then, you choose exactly where it goes.
+    </p>
+  </div>
+
+  <h2>What ThinkTime collects</h2>
+  <p>Nothing. ThinkTime does not collect, transmit, or have access to:</p>
+  <ul>
+    <li>Your highlights, notes, or any imported file content</li>
+    <li>Your name, email, or any account information — there is no account</li>
+    <li>Your location, contacts, camera, or microphone — the app never requests these</li>
+    <li>Analytics, crash reports, advertising identifiers, or usage tracking of any kind</li>
+  </ul>
+
+  <h2>How your data is stored</h2>
+  <p>
+    When you import a Kindle "My Clippings.txt" file, text copied from Amazon's Kindle notebook
+    page, or markdown highlight exports, ThinkTime parses them on your device and saves the result
+    to the app's local storage, on that device only. It never leaves your phone as part of normal
+    use. Uninstalling the app deletes it, and so does the in-app "Clear all highlights" option.
+  </p>
+
+  <h2>When something does leave your device</h2>
+  <p>ThinkTime has two explicit, user-initiated actions that open your device's native share sheet:</p>
+  <ul>
+    <li><strong>Sharing a single highlight</strong> — sends that highlight's text to whatever app or
+    person you pick from the share sheet.</li>
+    <li><strong>Sharing your highlights file</strong> — bundles everything you've imported into a
+    text file and sends it the same way.</li>
+  </ul>
+  <p>
+    In both cases the share sheet is your device's own operating system feature. ThinkTime hands it
+    plain text or a local file and has no visibility into what happens after you choose a
+    destination.
+  </p>
+
+  <h2>Opening the Kindle app</h2>
+  <p>
+    Tapping a highlight's "open in Kindle" action uses your device's standard app-linking system to
+    open the Kindle app, or a web search if it isn't installed. No data about this action is sent
+    to us.
+  </p>
+
+  <h2>Permissions</h2>
+  <p>
+    ThinkTime asks for file access only at the moment you choose to import or export a file, through
+    your device's own file picker. It does not request camera, microphone, location, or contacts
+    access.
+  </p>
+
+  <h2>Children's privacy</h2>
+  <p>
+    ThinkTime does not knowingly collect information from anyone, including children, because it
+    does not collect information at all.
+  </p>
+
+  <h2>Changes to this policy</h2>
+  <p>
+    If this policy changes, the "Last updated" date above will change too, and material changes
+    will be reflected here before they take effect.
+  </p>
+
+  <div class="contact">
+    Questions about this policy? Contact <a href="mailto:h@hereweare.love">h@hereweare.love</a>.
+  </div>
+</div>
